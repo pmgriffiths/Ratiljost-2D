@@ -1,0 +1,33 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/2d Assets/Cafono 2.0/Cafono 2.1.tpsheet
+- Assets/2d Assets/Cafono 2.0/cafono_sprites_with_normals.tpsheet
+- Assets/2d Assets/Char/TP Sprites/idle/idle_sprite_with_normals.tpsheet
+- Assets/2d Assets/Char/TP Sprites/Idle_tp.tpsheet
+- Assets/2d Assets/Char/TP Sprites/jump_down_tp_.tpsheet
+- Assets/2d Assets/Char/TP Sprites/jump_up.tpsheet
+- Assets/2d Assets/Char/TP Sprites/walk.tpsheet
+- Assets/2d Assets/ground_1.tpsheet
+- Assets/2d Assets/Walk 2/Walk_2_tp.tpsheet
+textureFileNames:
+- Assets/2d Assets/Cafono 2.0/Cafono 2.1.png
+- Assets/2d Assets/Cafono 2.0/cafono_sprites_with_normals.png
+- Assets/2d Assets/Char/TP Sprites/idle/idle_sprite_with_normals.png
+- Assets/2d Assets/Char/TP Sprites/Idle_tp.png
+- Assets/2d Assets/Char/TP Sprites/jump_down_tp_.png
+- Assets/2d Assets/Char/TP Sprites/jump_up.png
+- Assets/2d Assets/Char/TP Sprites/walk.png
+- Assets/2d Assets/ground_1.png
+- Assets/2d Assets/Walk 2/Walk_2_tp.png
+normalmapFileNames:
+- Assets/2d Assets/Cafono 2.0/Cafono 2.1_n.png
+- Assets/2d Assets/Cafono 2.0/cafono_sprites_with_normals_n.png
+- Assets/2d Assets/Char/TP Sprites/idle/idle_sprite_with_normals_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+enableDebugOutput: 0

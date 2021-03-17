@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: d36bdebed59e54e2ba8a62e93d764568
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 27544964452413276
+    second: Slices-ArmLeft
+  - first:
+      213: -972196650045020603
+    second: Slices-ArmRight
+  - first:
+      213: 7919076944969830911
+    second: Slices-Body
+  - first:
+      213: 2559991800913948063
+    second: Slices-EarLeft
+  - first:
+      213: -8940277041365662830
+    second: Slices-EarRight
+  - first:
+      213: -557398075754064997
+    second: Slices-Eyes
+  - first:
+      213: -4309767716348308106
+    second: Slices-Hat
+  - first:
+      213: -8875834214031158682
+    second: Slices-Jumper
+  - first:
+      213: -2128103012491837803
+    second: Slices-Lamp
+  - first:
+      213: -1751734947208251142
+    second: Slices-Left Leg
+  - first:
+      213: 4807076626236238997
+    second: Slices-RightLeg
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Slices-ArmLeft
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 477
+        width: 249
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f698dcffbd16000800000000000000
+      internalID: 27544964452413276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-ArmRight
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 399
+        width: 249
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546ed363c401282f0800000000000000
+      internalID: -972196650045020603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-Body
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 193
+        width: 250
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff199ed368636ed60800000000000000
+      internalID: 7919076944969830911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-EarLeft
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 735
+        width: 100
+        height: 95
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51578945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d6361cafae68320800000000000000
+      internalID: 2559991800913948063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-EarRight
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 735
+        width: 105
+        height: 95
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51578945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 293c1d30661cde380800000000000000
+      internalID: -8940277041365662830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-Eyes
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 681
+        width: 89
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9351304769b348f0800000000000000
+      internalID: -557398075754064997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-Hat
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 779
+        width: 294
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 675dc9a9811a034c0800000000000000
+      internalID: -4309767716348308106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-Jumper
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 586
+        width: 265
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6621a6bfec3b2d480800000000000000
+      internalID: -8875834214031158682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-Lamp
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 832
+        width: 130
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e3cf6d5957772e0800000000000000
+      internalID: -2128103012491837803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-Left Leg
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 555
+        width: 97
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af8b30bb85690b7e0800000000000000
+      internalID: -1751734947208251142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slices-RightLeg
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 12
+        width: 96
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ce4eaf8ba26b240800000000000000
+      internalID: 4807076626236238997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

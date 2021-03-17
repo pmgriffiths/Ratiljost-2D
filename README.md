@@ -1,1 +1,1 @@
-Ratiljost 2D
+ratiljóst
