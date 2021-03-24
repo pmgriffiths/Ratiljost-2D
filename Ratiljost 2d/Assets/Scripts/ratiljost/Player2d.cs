@@ -58,11 +58,8 @@ public class Player2d : Trackable
     public float slowTime;
     public float minVelocity;
 
-    public string[] groundedLayers = { "Ground" };
-    public ContactFilter2D contactFilter2d;
     public LayerMask groundedMask;
-
-    private Rigidbody2D cafonoRigidBody;
+    public Vector2 groundCheckBox;
 
     public Animator animator;
 
@@ -73,10 +70,7 @@ public class Player2d : Trackable
         facingDirection = Direction.Forwards;
 
         Debug.Assert(boxedFollowCam != null);
-        groundedMask = LayerMask.GetMask(groundedLayers);
-        contactFilter2d = new ContactFilter2D();
-        contactFilter2d.useLayerMask = true;
-        contactFilter2d.SetLayerMask(groundedMask);
+
 
         cafonoRigidBody = GetComponent<Rigidbody2D>();
         Debug.Assert(rigidbody2d != null, "Need 2d rigidbody");
@@ -89,7 +83,9 @@ public class Player2d : Trackable
 
     private void UpdateGrounded()
     {
-        groundedPlayer = cafonoRigidBody.IsTouchingLayers(groundedMask);
+        Collider2D possibleGround = Physics2D.OverlapBox(transform.position, groundCheckBox, 0f, groundedMask);
+        groundedPlayer = possibleGround != null;
+
     }
 
 
@@ -221,7 +217,7 @@ public class Player2d : Trackable
 
     public void InputMove(InputAction.CallbackContext context)
     {
-        Debug.Log("Move " + context.ToString());
+//        Debug.Log("Move " + context.ToString());
 
         if (context.action.name == "Move")
         {
@@ -235,7 +231,7 @@ public class Player2d : Trackable
                 else
                 {
 
-                    Debug.Log("Move " + moveValue + " type " + context.interaction);
+//                    Debug.Log("Move " + moveValue + " type " + context.interaction);
 
                     if (moveValue.x != 0)
                     {
