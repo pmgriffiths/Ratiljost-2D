@@ -61,6 +61,8 @@ public class Player2d : Trackable
     public LayerMask groundedMask;
     public Vector2 groundCheckBox;
 
+    public float cameraSize;
+
     private Rigidbody2D cafonoRigidBody;
 
     public Animator animator;

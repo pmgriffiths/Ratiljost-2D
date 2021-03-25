@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class CameraZone : MonoBehaviour
 {
-    public float forwardYPosition;
+    public Vector3 targetCameraOffsetForward;
 
-    public float forwardZPosition;
+    public Vector3 targetCameraOffsetBack;
 
-    public float forwardMaxDeviation;
+    public Vector2 forwardMaxDeviation;
 
-    public float forwardOffset;
+    public Vector2 reverseMaxDeviation;
 
-    public float reverseYPosition;
-
-    public float reverseZPosition;
-
-    public float reverseMaxDeviation;
-
-    public float reverseOffset;
+    public float cameraSize;
 
     private void OnTriggerExit(Collider other)
     {
@@ -29,10 +23,11 @@ public class CameraZone : MonoBehaviour
 
             if (player.facingDirection == Trackable.Direction.Forwards)
             {
-                player.boxedFollowCam.ChangeOffsets(forwardYPosition, forwardZPosition, forwardMaxDeviation, forwardOffset);
-            } else
+                player.boxedFollowCam.ChangeOffsets(targetCameraOffsetForward, forwardMaxDeviation);
+            }
+            else
             {
-                player.boxedFollowCam.ChangeOffsets(reverseYPosition, reverseZPosition, reverseMaxDeviation, reverseOffset);
+                player.boxedFollowCam.ChangeOffsets(targetCameraOffsetBack, reverseMaxDeviation);
             }
         }
     }

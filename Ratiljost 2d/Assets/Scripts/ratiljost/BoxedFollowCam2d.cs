@@ -20,9 +20,14 @@ public class BoxedFollowCam2d : MonoBehaviour
     public float maxSpeed = 5f;
 
     /// <summary>
-    /// Vector that the camera moves along
+    /// Vector that the camera moves along left/right
     /// </summary>
-    public Vector3 trackingVector = Vector3.right;
+    private Vector3 trackingVector = new Vector3(1, 1, 0);
+
+    /// <summary>
+    /// Vector that the camera moves along up/down
+    /// </summary>
+    private Vector3 trackingVectorY = Vector3.up;
 
     /// <summary>
     /// Direction the camera looks
@@ -32,16 +37,24 @@ public class BoxedFollowCam2d : MonoBehaviour
     /// <summary>
     /// How far the tracked object can move before camera tracks
     /// </summary>
-    public float maxDeviation = 0.1f;
+    public Vector2 maxDeviation;
 
-    public float maxVerticalDeviation = 0.5f;
+    /// <summary>
+    /// Constraint max height for camera
+    /// </summary>
+    public float maxY;
+
+    /// <summary>
+    /// Constrain min Y for camera
+    /// </summary>
+    public float minY;
 
     /// <summary>
     /// How far we're from tracking the object
     /// </summary>
-    public float currentDeviation;
+    public float currentXDev;
 
-    public float currentVerticalDeviation;
+    public float currentYDev;
 
     /// <summary>
     ///  How we stop camera moving beyond bounds
@@ -58,12 +71,6 @@ public class BoxedFollowCam2d : MonoBehaviour
     /// object
     /// </summary>
     public Vector3 targetOffsetVector = new Vector3(0f, 1f, -5f);
-
-    public float targetXOffset = 4f;
-
-    public float targetZOffset = -6;
-
-    public bool allowYTracking = false;
 
     /// <summary>
     /// Has the target flipped direction recently
@@ -85,9 +92,22 @@ public class BoxedFollowCam2d : MonoBehaviour
     /// </summary>
     public float recoverySpeed = 5f;
 
-
     public Trackable.Direction trackedDirection;
 
+    /// <summary>
+    /// Target size for child cameras
+    /// </summary>
+    public float cameraSize;
+
+    /// <summary>
+    /// How fast the cameras move to the target size;
+    /// </summary>
+    public float cameraSizeChangeFactor;
+
+    /// <summary>
+    /// Cameras controlled by the script
+    /// </summary>
+    public List<Camera> childCameras;
 
     /// <summary>
     /// Time to stop camera position recovery
@@ -100,56 +120,54 @@ public class BoxedFollowCam2d : MonoBehaviour
         // transform.rotation = Quaternion.Euler(cameraOrientation);
         trackedDirection = trackedObject.facingDirection;
         transform.position = FindIdealPostion();
-        
+
+        childCameras = new List<Camera>();
+        foreach (Camera camera in GetComponentsInChildren<Camera>())
+        {
+            childCameras.Add(camera);
+            camera.orthographicSize = cameraSize;
+        }
     }
 
 
     // Update is called once per frame
     void Update()
     {
-/*        // Only care about deviation in tracking direction
-        Vector3 trackedScalePos = Vector3.Scale(trackedObject.transform.position, trackingVector);
 
-        // Find ideal position
-        if (trackedDirection != trackedObject.facingDirection)
-        {
-            // Target has changed direction this update - start recovery
-            inFlipRecovery = true;
-            trackedDirection = trackedObject.facingDirection;
-            endFlipRecoveryTime = Time.time + flipRecoveryTime;
-        }
-
-        inFlipRecovery = inFlipRecovery && Time.time < endFlipRecoveryTime;
-
-        float offset = trackedObject.facingDirection == Trackable.Direction.Forwards ? targetOffset : -targetOffset;
-        Vector3 idealPos = trackedScalePos + targetOffsetVector + (trackingVector * offset); */
         Vector3 idealPos = FindIdealPostion();
         Vector3 offsetFromIdeal = transform.position - idealPos;
-        currentDeviation = offsetFromIdeal.magnitude;
+//        currentXDev = offsetFromIdeal.magnitude;
+        currentXDev = offsetFromIdeal.x - idealPos.x;
+        currentYDev = offsetFromIdeal.y - idealPos.y;
 
-        currentVerticalDeviation = Mathf.Abs(offsetFromIdeal.y - idealPos.y);
-
-        //        Debug.Log("track: " + trackedScalePos + "cur: " + transform.position + " ideal: " + idealPos + " offset: " + offsetFromIdeal + " curDev: " + currentDeviation);
+        Debug.Log("track: " + trackedObject.transform.position + "cur: " + transform.position + " ideal: " + idealPos + " offset: " + offsetFromIdeal + " curXDev: " + currentXDev + " curY: " + currentYDev);
 
         inFlipRecovery = inFlipRecovery && Time.time < endRecoveryTime;
         inCameraZoneRecovery = inCameraZoneRecovery && Time.time < endRecoveryTime;
 
-        if (currentDeviation > maxDeviation || currentVerticalDeviation > maxVerticalDeviation || inFlipRecovery || inCameraZoneRecovery)
+        if (Mathf.Abs(currentXDev) > maxDeviation.x || Mathf.Abs(currentYDev) > maxDeviation.y || inFlipRecovery || inCameraZoneRecovery)
         {
             // TODO: fix this for any vector, not just x
 
-            float offsetX = idealPos.x - transform.position.x;
-            float offsetY = idealPos.y - transform.position.y;
 
             // Debug.Log("offset x: " + offsetX + " offset y: " + offsetY);
             float moveSpeed = inFlipRecovery ? recoverySpeed : maxSpeed;
 
             // Check for allowed movement
-            if (allowedMovement == MoveDirections.All ||
-                (allowedMovement == MoveDirections.Positive && offsetX < 0) ||
-                (allowedMovement == MoveDirections.Negative && offsetX > 0))
+            if (allowedMovement == MoveDirections.All)
             {
                 transform.position = Vector3.MoveTowards(transform.position, idealPos, moveSpeed * Time.deltaTime);
+            }
+        }
+
+        // Migrate the cameras into position
+        float currentCameraSize = childCameras[0].orthographicSize;
+        if (!Mathf.Approximately(currentCameraSize, cameraSize))
+        {
+            float nextCameraSize = currentCameraSize - ((currentCameraSize - cameraSize) * Time.deltaTime * cameraSizeChangeFactor);
+            foreach (Camera camera in childCameras)
+            {
+                camera.orthographicSize = nextCameraSize;
             }
         }
     }
@@ -170,12 +188,15 @@ public class BoxedFollowCam2d : MonoBehaviour
 
         inFlipRecovery = inFlipRecovery && Time.time < endRecoveryTime;
 
-        float offset = trackedObject.facingDirection == Trackable.Direction.Forwards ? targetXOffset : -targetXOffset;
-        Vector3 idealPos = trackedScalePos + targetOffsetVector + (trackingVector * offset);
-        if (allowYTracking)
-        {
-            idealPos.y = trackedObject.transform.position.y + targetOffsetVector.y;
-        }
+        
+        float offsetX = trackedObject.facingDirection == Trackable.Direction.Forwards ? targetOffsetVector.x : -targetOffsetVector.x;
+        float offsetY = targetOffsetVector.y;
+
+        Vector3 idealPos = trackedScalePos;
+        idealPos.x += offsetX;
+        idealPos.y += offsetY;
+        idealPos.z = targetOffsetVector.z;
+
         return idealPos;
     }
 
@@ -211,12 +232,10 @@ public class BoxedFollowCam2d : MonoBehaviour
         allowedMovement = MoveDirections.All;
     }
 
-    public void ChangeOffsets(float newY, float newZ, float newDeviation, float newOffset)
+    public void ChangeOffsets(Vector3 newTargetOffet, Vector2 newDeviation)
     {
-        Debug.Log("Moving targer new offset:" + newOffset + "dev: " + newDeviation + " y: " + newY + " z: " + newZ);
-        targetOffsetVector.y = newY;
-        targetOffsetVector.z = newZ;
-        targetXOffset = newOffset;
+        Debug.Log("Moving target new offset:" + newTargetOffet + "dev: " + newDeviation);
+        targetOffsetVector = newTargetOffet;
         maxDeviation = newDeviation;
 
         inCameraZoneRecovery = true;
