@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: cafono_sprites_with_normals
+  m_Name: idle_sprite_with_normals
   m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ALPHABLEND_ON _NORMALMAP
   m_LightmapFlags: 4
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 7851590199f9f41538b8ae03bb0277d9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 49398d7e2d11549abb1817e1f47f66bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d36bdebed59e54e2ba8a62e93d764568, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9ad0a60624af449248fdb7993178a826, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 6d05bf151dad843ca82d2f26a1f3e92a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 49398d7e2d11549abb1817e1f47f66bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:

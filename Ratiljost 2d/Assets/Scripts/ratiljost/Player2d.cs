@@ -29,7 +29,7 @@ public class Player2d : Trackable
     /// </summary>
     public bool dead;
 
-    public BoxedFollowCam boxedFollowCam;
+    public BoxedFollowCam2d boxedFollowCam;
 
     /// <summary>
     /// How much upwards force to apply
@@ -60,6 +60,8 @@ public class Player2d : Trackable
 
     public LayerMask groundedMask;
     public Vector2 groundCheckBox;
+
+    private Rigidbody2D cafonoRigidBody;
 
     public Animator animator;
 

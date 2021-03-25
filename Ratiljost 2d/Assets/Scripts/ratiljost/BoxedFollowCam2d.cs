@@ -6,7 +6,7 @@ using UnityEngine;
 /// Follow a gameobject but stays confined within a box defined
 /// by colliders in specified layer
 /// </summary>
-public class BoxedFollowCam : MonoBehaviour
+public class BoxedFollowCam2d : MonoBehaviour
 {
 
     /// <summary>
