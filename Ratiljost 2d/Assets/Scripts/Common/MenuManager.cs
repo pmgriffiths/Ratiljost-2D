@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace PodTheDog.Common
@@ -32,6 +33,11 @@ namespace PodTheDog.Common
         private bool playing = false;
         private IEnumerator tickingCoroutine;
 
+        /// <summary>
+        /// Action to start game
+        /// </summary>
+        public InputAction startAction;
+
         void Awake()
         {
  
@@ -39,10 +45,11 @@ namespace PodTheDog.Common
             tickingCoroutine = PlayTickingSounds();
             flickerCurve = GetVolumeCurve(tickingNoise, flickeringResolution);
             Debug.Log("Flicker curve: " + flickerCurve + " keys " + flickerCurve.length);
-            lightMinIntensity = flickeringLight.intensity > lightFlickerRange ? flickeringLight.intensity - lightFlickerRange : 0f;
+//            lightMinIntensity = flickeringLight.intensity > lightFlickerRange ? flickeringLight.intensity - lightFlickerRange : 0f;
 
             Debug.Log("efxSource is enabled: " + efxEnabled);
 
+            startAction.performed += StartGame;
         }
 
 
@@ -105,6 +112,16 @@ namespace PodTheDog.Common
             efxEnabled = enabled;
         }
 
+        void OnEnable()
+        {
+            startAction.Enable();
+        }
+
+        private void OnDisable()
+        {
+            startAction.Disable();
+        }
+
         private void Update()
         {
             if (efxEnabled && !playing)
@@ -130,11 +147,11 @@ namespace PodTheDog.Common
 
             }
 
-            if (Input.anyKeyDown)
-            {
-                // Load the next scene
-                SceneManager.LoadScene(1);
-            }
+        }
+
+        void StartGame(InputAction.CallbackContext callbackContext)
+        {
+            SceneManager.LoadScene(1);
         }
 
         private IEnumerator PlayTickingSounds()

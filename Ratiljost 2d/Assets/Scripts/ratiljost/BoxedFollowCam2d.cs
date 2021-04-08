@@ -140,7 +140,7 @@ public class BoxedFollowCam2d : MonoBehaviour
         currentXDev = offsetFromIdeal.x - idealPos.x;
         currentYDev = offsetFromIdeal.y - idealPos.y;
 
-        Debug.Log("track: " + trackedObject.transform.position + "cur: " + transform.position + " ideal: " + idealPos + " offset: " + offsetFromIdeal + " curXDev: " + currentXDev + " curY: " + currentYDev);
+//        Debug.Log("track: " + trackedObject.transform.position + "cur: " + transform.position + " ideal: " + idealPos + " offset: " + offsetFromIdeal + " curXDev: " + currentXDev + " curY: " + currentYDev);
 
         inFlipRecovery = inFlipRecovery && Time.time < endRecoveryTime;
         inCameraZoneRecovery = inCameraZoneRecovery && Time.time < endRecoveryTime;

@@ -251,7 +251,13 @@ public class Player2d : Trackable
                 moving = false;
                 slowing = true;
             }
-        }
+        } 
+    }
+
+    public void InputQuit(InputAction.CallbackContext callbackContext)
+    {
+        Debug.Log("Quit: " + callbackContext.action);
+        SceneManager.LoadScene(0);
     }
 
     public void InputJump(InputAction.CallbackContext context)
